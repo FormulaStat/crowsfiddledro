@@ -1,224 +1,146 @@
-/* -------------------------------------------
-   CROWSFIDDLED ESTATE - style.css
-   Premium Real Estate Design
-------------------------------------------- */
+/* ===============================
+   Crowsfiddled Real Estate — Phase 2
+   Premium Responsive Stylesheet
+   =============================== */
 
-/* ===== Global Reset ===== */
+/* === Root Theme === */
+:root {
+  --primary-color: #c4a24c;
+  --dark-color: #111;
+  --light-color: #f8f9fa;
+  --text-color: #333;
+  --font-primary: "Poppins", sans-serif;
+  --font-secondary: "Playfair Display", serif;
+}
+
+/* === Base Reset === */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: "Inter", sans-serif;
-  background-color: #ffffff;
-  color: #333;
+  font-family: var(--font-primary);
+  background: var(--light-color);
+  color: var(--text-color);
+  line-height: 1.6;
   overflow-x: hidden;
-  transition: all 0.3s ease;
 }
 
-img {
-  max-width: 100%;
-  display: block;
+h1, h2, h3 {
+  font-family: var(--font-secondary);
+  color: var(--dark-color);
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* ===== Reusable Classes ===== */
-.section {
-  padding: 100px 10%;
+/* === Layout Containers === */
+section {
+  padding: 80px 10%;
   position: relative;
 }
 
 .container {
-  max-width: 1300px;
-  margin: 0 auto;
-}
-
-h1, h2, h3, h4 {
-  font-family: "Playfair Display", serif;
-  font-weight: 600;
-}
-
-h2 {
-  font-size: 2.5rem;
-  color: #1e1e1e;
-  margin-bottom: 20px;
-}
-
-p {
-  line-height: 1.7;
-  color: #555;
-}
-
-/* ===== Header ===== */
-header {
   width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: none;
-  z-index: 999;
-  transition: all 0.3s ease;
+  max-width: 1200px;
+  margin: auto;
 }
 
-header.sticky {
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-}
-
-header .container {
+/* === Hero Section === */
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(17,17,17,0.6), rgba(17,17,17,0.6)), 
+              url("images/hero-bg.jpg") center/cover no-repeat;
+  color: white;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 20px 10%;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
 }
 
-.logo {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #000;
+.hero h1 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  animation: fadeUp 1.5s ease forwards;
 }
 
-.logo span {
-  color: #d4af37;
+.hero p {
+  font-size: 1.2rem;
+  margin: 20px 0;
+  max-width: 600px;
 }
 
-.nav-menu {
-  display: flex;
-  gap: 30px;
-}
-
-.nav-menu a {
-  font-weight: 500;
-  color: #222;
-  position: relative;
-}
-
-.nav-menu a::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background: #d4af37;
+.hero .btn {
+  background: var(--primary-color);
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
   transition: 0.3s;
 }
 
-.nav-menu a:hover::after {
-  width: 100%;
+.hero .btn:hover {
+  background: white;
+  color: var(--primary-color);
+  box-shadow: 0 0 15px rgba(196, 162, 76, 0.6);
 }
 
-/* ===== Menu Toggle (Mobile) ===== */
-.menu-toggle {
-  display: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-}
-
-/* ===== Hero Section ===== */
-.hero {
-  height: 100vh;
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)),
-              url("images/hero-bg.jpg") center/cover no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #fff;
-  position: relative;
-}
-
-.hero-content {
-  animation: fadeUp 1s ease-out forwards;
-  opacity: 0;
-}
-
-.hero-content h1 {
-  font-size: 3.5rem;
-  color: #fff;
-  margin-bottom: 15px;
-}
-
-.hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 25px;
-}
-
-.btn {
-  background: #d4af37;
-  color: #fff;
-  padding: 12px 30px;
-  border-radius: 50px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.btn:hover {
-  background: #b8962e;
-  transform: scale(1.05);
-}
-
-/* ===== About Section ===== */
+/* === About Section === */
 .about {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   gap: 50px;
+}
+
+.about img {
+  width: 45%;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .about-text {
   flex: 1;
 }
 
-.about-image {
-  flex: 1;
+.about-text h2 {
+  margin-bottom: 20px;
 }
 
-.about-image img {
-  border-radius: 20px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+.about-text p {
+  margin-bottom: 15px;
+  color: #555;
 }
 
-.stats {
-  display: flex;
-  gap: 30px;
-  margin-top: 30px;
+/* === Investment Section === */
+.investments {
+  background: white;
+  text-align: center;
 }
 
-.stat h3 {
-  font-size: 2rem;
-  color: #d4af37;
+.investments h2 {
+  margin-bottom: 40px;
 }
 
-/* ===== Investments Section ===== */
 .investment-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  margin-top: 50px;
+  gap: 25px;
 }
 
 .investment-card {
-  background: #fff;
-  border-radius: 15px;
+  background: var(--light-color);
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  transition: 0.4s ease;
 }
 
 .investment-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
 .investment-card img {
@@ -228,217 +150,179 @@ header .container {
 }
 
 .investment-card h3 {
-  margin: 15px 20px 5px;
-  font-size: 1.2rem;
+  color: var(--dark-color);
+  margin: 15px 0 5px;
 }
 
-.investment-card .location,
-.investment-card .price {
-  margin: 0 20px;
-  color: #777;
+.investment-card p {
+  padding: 0 20px 20px;
+  color: #555;
+  font-size: 0.95rem;
 }
 
-.status {
-  display: inline-block;
-  margin: 15px 20px 20px;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  color: #fff;
-}
-
-.status.ongoing {
-  background: #2e8b57;
-}
-
-.status.upcoming {
-  background: #d4af37;
-}
-
-/* ===== Partners Section ===== */
-.partners {
+/* === Partnerships Section === */
+.partnerships {
+  background: linear-gradient(180deg, #fff, #f1f1f1);
   text-align: center;
 }
 
-.partner-logos {
+.partners-logos {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 40px;
   margin-top: 40px;
 }
 
-.partner-logos img {
-  height: 60px;
-  opacity: 0.8;
+.partners-logos img {
+  width: 120px;
+  opacity: 0.7;
   transition: 0.3s;
 }
 
-.partner-logos img:hover {
+.partners-logos img:hover {
   opacity: 1;
+  transform: scale(1.1);
+}
+
+/* === Property Management Section === */
+.management {
+  background: #fffaf0;
+}
+
+.management h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.management-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.service-card {
+  background: white;
+  width: 280px;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.service-card:hover {
   transform: scale(1.05);
 }
 
-/* ===== Testimonials ===== */
+.service-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+/* === Testimonials Section === */
 .testimonials {
-  background: #fafafa;
+  background: #f8f9fa;
   text-align: center;
 }
 
 .testimonial-slider {
   display: flex;
   gap: 30px;
-  justify-content: center;
-  margin-top: 40px;
-  flex-wrap: wrap;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
 }
 
 .testimonial {
-  background: #fff;
+  background: white;
+  padding: 20px;
   border-radius: 15px;
-  padding: 25px;
-  max-width: 350px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  min-width: 280px;
+  scroll-snap-align: start;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-.testimonial p {
-  font-style: italic;
-  margin-bottom: 10px;
-  color: #444;
+.testimonial img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 15px;
 }
 
-.testimonial h4 {
-  color: #d4af37;
-  font-weight: 600;
-}
-
-/* ===== Contact Section ===== */
+/* === Contact Section === */
 .contact {
-  background: #f8f8f8;
+  background: #111;
+  color: white;
   text-align: center;
 }
 
 .contact form {
   max-width: 600px;
-  margin: 40px auto 0;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  margin: 0 auto;
 }
 
 .contact input,
 .contact textarea {
-  padding: 14px 18px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  font-family: inherit;
-  font-size: 1rem;
-  resize: none;
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
 }
 
 .contact button {
-  background: #d4af37;
-  color: #fff;
-  font-weight: 600;
+  background: var(--primary-color);
   border: none;
-  padding: 12px 30px;
+  padding: 12px 25px;
   border-radius: 50px;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .contact button:hover {
-  background: #b8962e;
+  background: white;
+  color: var(--primary-color);
 }
 
-/* ===== Footer ===== */
+/* === Footer === */
 footer {
-  background: #111;
-  color: #ccc;
-  padding: 40px 10%;
+  background: #000;
+  color: white;
+  padding: 20px;
   text-align: center;
+  font-size: 0.9rem;
 }
 
-footer .socials {
-  margin-top: 15px;
-}
-
-footer .socials a {
-  color: #d4af37;
-  margin: 0 10px;
-  transition: 0.3s;
-}
-
-footer .socials a:hover {
-  color: #fff;
-}
-
-/* ===== Scroll Reveal ===== */
-.reveal {
-  opacity: 0;
-  transform: translateY(60px);
-  transition: all 0.8s ease;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ===== Animations ===== */
+/* === Animations === */
 @keyframes fadeUp {
   from {
-    transform: translateY(20px);
     opacity: 0;
+    transform: translateY(40px);
   }
   to {
-    transform: translateY(0);
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
-body.loaded {
-  animation: fadeUp 1s ease;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 900px) {
-  header .container {
-    padding: 20px 5%;
-  }
-
-  .nav-menu {
-    position: fixed;
-    top: 70px;
-    left: -100%;
-    width: 100%;
-    height: calc(100vh - 70px);
-    background: #fff;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: left 0.3s ease;
-  }
-
-  .nav-menu.active {
-    left: 0;
-  }
-
-  .menu-toggle {
-    display: block;
-    color: #333;
-  }
-
+/* === Responsive === */
+@media (max-width: 768px) {
   .about {
     flex-direction: column;
   }
 
-  .stats {
-    flex-direction: column;
-    text-align: center;
+  .about img {
+    width: 100%;
   }
 
-  .testimonial-slider {
-    flex-direction: column;
+  section {
+    padding: 60px 5%;
+  }
+
+  .investment-grid {
+    grid-template-columns: 1fr;
   }
 }
